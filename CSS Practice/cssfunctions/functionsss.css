@@ -1,0 +1,148 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+:root{
+    
+    --BGCOLOR: #475569;
+    
+    --SHAWDOW:0 7px 3px -5px red;
+    --BORDERS:2px solid black;
+    --RADIAL-COLOR: whitesmoke;
+
+    --SQUARE-BGCOLOR: papayawhip;
+    --SQUARE-SIZE: max(150px);
+    --FS: clamp(1.75rem, 3vh, 2.25rem);
+    --FS-SM: clamp(1.75rem, 3vh, 2.25rem);
+}
+
+@media (prefers-color-scheme: light){
+    :root {
+        --BGCOLOR: black;
+        --ALT-BGCOLOR: #000;
+        --RADIAL-COLOR: rgb(203, 202, 202);
+        --SQUARE-BGCOLOR: rgb(133, 16, 133);
+
+    }
+}
+
+body{
+    font: var(--FS) sans-serif;
+    min-height: 100vh;
+    background-color: var(--BGCOLOR);
+    background-image: radial-gradient(whitesmoke, black);
+    display: flex;
+    flex-direction: column;
+    
+}
+
+header,nav,footer{
+   
+    display: grid;
+    place-content: center;
+    grid-template-columns: 100%;
+    text-align: center;
+
+}
+
+header,footer{
+    position:sticky;
+    background-color: rgba(128, 121, 83, 0.362);
+    color:rgb(68, 35, 99)
+}
+
+header{
+    top:0
+}
+nav{
+    background-color: whitesmoke;
+    color: black;
+    padding: 1em;
+    border-bottom: var(--BORDERS);
+    box-shadow: var(--SHAWDOW);
+}
+main{
+    flex-grow:1;
+    
+
+    padding: 10px 0;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(100px,300px));
+
+    gap: min(2vw 25px); 
+    /* display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start; */
+}
+
+main section{
+    flex-grow: 1;
+    padding: 10px 0;
+}
+
+main aside{
+    background-color: hsla(0,0% , 20%, 0.8);
+    color: white;
+    font-size: var(--FS-SM);
+    font-style: italic;
+    padding: 10px 0;
+}
+
+.content{
+    margin-top: 20px;
+}
+.tooltip{
+    border-bottom: 2px dashed orangered ;
+    position: relative;
+}
+.tooltip:hover::before{
+    content: attr(data-tooltip);
+    position: absolute;
+    top:-20px;
+    white-space: nowrap;
+    background-color: black;
+    padding: 10px 0;
+    border-radius: 15px;
+}
+footer{
+    bottom:0
+}
+
+a:any-link{
+    color: firebrick;
+}
+
+a:hover, a:focus{
+    filter: brightness(150%);
+}
+
+.square{
+    background-color: var(--SQUARE-BGCOLOR);
+    /* width: var(--SQUARE-SIZE);
+    height: var(--SQUARE-SIZE); */
+    border: var(--BORDERS);
+    border-radius: 15px;
+    display:grid;
+    
+    place-content: center;
+}
+.mode{
+    background-color: cornflowerblue;
+}
+
+@media screen and (min-width:576px){
+
+    main{
+        flex-flow: row nowrap;
+        justify-content: space-between;
+    }
+    main section{
+        width: calc(70% - 5px);
+
+    }
+    main aside{
+        width:calc(30% - 5px );
+    }
+}

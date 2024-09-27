@@ -1,0 +1,23 @@
+*{
+    margin:o;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img{
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+body{
+    font: 2rem sans-serif;
+    min-height: 100vh;
+    background-color: gray;
+    background-image: radial-gradient(whitesmoke,hwb(0 21% 17%));
+    display: flex;
+    flex-direction:column
+}
+
+header{
+    font: 1em sans-serif;
+}
