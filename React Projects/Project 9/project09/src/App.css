@@ -1,0 +1,13 @@
+#root{
+  margin: 20px;
+}
+
+.main-heading{
+  text-align: center;
+}
+
+.emp-details{
+  display: flex;
+  justify-content:center;
+  margin-top: 50px;
+}
